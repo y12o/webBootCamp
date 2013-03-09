@@ -1,0 +1,130 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@charset 'utf-8';
+@import "compass/reset";
+@import "compass/css3";
+
+
+
+
+$experimental-support-for-webkit : true !default;
+$support-for-original-webkit-gradients : true !default;
+$experimental-support-for-mozilla : true !default;
+$experimental-support-for-opera : true !default;
+$experimental-support-for-microsoft : false !default;
+$experimental-support-for-khtml : false !default;
+
+
+
+
+
+//contentSize setting
+$contentClass 			: iPhone;
+
+
+
+$grid 				: 	10;
+
+
+//contentSizes settings
+$pcWidth 				: 	1280px;
+$pcHeight 				: 	900px;
+
+$iPhoneWidth 			: 	320px;
+$iPhoneHeight 			: 	480px;
+
+$androidWidth 			: 	480px;
+$androidHeight 			: 	800px;
+
+
+//default mawrgin set
+$defaultMargin 			: 	10px;
+
+
+
+
+
+//
+body{
+	@if $contentClass == pc{
+		width: $pcWidth;
+		height: $pcHeight;
+	} @else if $contentClass == iPhone{
+		width: $iPhoneWidth;
+		height: $iPhoneHeight;
+	} @else if $contentClass == android{
+		width: $androidWidth;
+		height: $androidHeight;
+	}
+	margin: 0 auto;
+}
+
+.btn{
+	@if $contentClass == pc{
+		width: $pcWidth / $grid * 2 - 10px;
+	} @else if $contentClass == iPhone{
+		width: $iPhoneWidth - $defaultMargin * 2;
+	} @else if $contentClass == android{
+		width: $androidWidth;
+	}
+	height: 20px;
+	margin: 0 auto;
+
+}
+
+
+.btn_small{
+	@extend .btn;
+	@if $contentClass == pc{
+		width: $pcWidth / $grid * 2 - 10px;
+	} @else if $contentClass == iPhone{
+		width: $iPhoneWidth - $defaultMargin * 2;
+	} @else if $contentClass == android{
+		width: $androidWidth;
+	}
+	height: 10px;
+
+}
+
+.btn_arrow_move{
+	@if $contentClass == pc{
+		width: $pcWidth / $grid * 2 - 10px;
+	} @else if $contentClass == iPhone{
+		width: $iPhoneWidth;
+	} @else if $contentClass == android{
+		width: $androidWidth;
+	}
+	position: relative;
+	&:after{
+		content: "";
+		display: block;
+		position: absolute;
+		height: 0;
+		width: 0;
+		right: 50%;
+		top: 50%;
+
+
+	}
+}
+
+.btn_arrow_back{
+	@extend .btn_arrow_move;
+	&:after{
+		right: auto;
+		left: 50%;
+
+	};
+}
+
+
+$buttonDefaultWidth 	: 	200px;
+$buttonDefaultHiehgt 	: 	20px;
+
+
+
+
+
+
