@@ -68,44 +68,110 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 50, ../sass/base.scss */
-body {
-  width: 320px;
-  height: 480px;
-  margin: 0 auto;
-}
+@media only screen and (max-width: 1280px) {
+  /* line 38, ../sass/base.scss */
+  #wrap {
+    min-width: 900px;
+    background-color: red;
+    margin: 0 auto;
+  }
+  /* line 42, ../sass/base.scss */
+  #wrap:before {
+    content: "pc";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -900px/2;
+    margin-left: -900px/2;
+  }
 
-/* line 64, ../sass/base.scss */
+  /* line 51, ../sass/base.scss */
+  1280px {
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 480px) {
+  /* line 38, ../sass/base.scss */
+  #wrap {
+    min-width: 320px;
+    background-color: lime;
+    margin: 0 auto;
+  }
+  /* line 42, ../sass/base.scss */
+  #wrap:before {
+    content: "iphone";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -320px/2;
+    margin-left: -320px/2;
+  }
+
+  /* line 51, ../sass/base.scss */
+  480px {
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 800px) {
+  /* line 38, ../sass/base.scss */
+  #wrap {
+    min-width: 480px;
+    background-color: blue;
+    margin: 0 auto;
+  }
+  /* line 42, ../sass/base.scss */
+  #wrap:before {
+    content: "android";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -480px/2;
+    margin-left: -480px/2;
+  }
+
+  /* line 51, ../sass/base.scss */
+  800px {
+    margin: 0;
+  }
+}
+/* line 78, ../sass/base.scss */
 .btn, .btn_small {
-  width: 300px;
   height: 20px;
   margin: 0 auto;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
 }
 
-/* line 78, ../sass/base.scss */
+/* line 87, ../sass/base.scss */
 .btn_small {
-  width: 300px;
   height: 10px;
 }
 
-/* line 91, ../sass/base.scss */
+/* line 93, ../sass/base.scss */
 .btn_arrow_move, .btn_arrow_back {
-  width: 320px;
   position: relative;
 }
-/* line 100, ../sass/base.scss */
+/* line 95, ../sass/base.scss */
 .btn_arrow_move:after, .btn_arrow_back:after {
   content: "";
   display: block;
   position: absolute;
   height: 0;
   width: 0;
-  right: 50%;
+  right: 15px;
   top: 50%;
 }
 
-/* line 115, ../sass/base.scss */
+/* line 110, ../sass/base.scss */
 .btn_arrow_back:after {
   right: auto;
-  left: 50%;
+  left: 15px;
+}
+
+/* line 117, ../sass/base.scss */
+footer {
+  text-align: center;
 }
