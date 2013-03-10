@@ -8,9 +8,8 @@
 
 
 
-
-$experimental-support-for-webkit : true !default;
 $support-for-original-webkit-gradients : true !default;
+$experimental-support-for-webkit : true !default;
 $experimental-support-for-mozilla : true !default;
 $experimental-support-for-opera : true !default;
 $experimental-support-for-microsoft : false !default;
@@ -18,84 +17,80 @@ $experimental-support-for-khtml : false !default;
 
 
 
+$contentClass 		: pc 		iphone 		android;
+$globalMinWidth 	: 900px 	320px 		480px;
+$globalMinHeight 	: 900px 	320px 		480px;
+$globalMaxWidth 	: 1280px 	480px 		800px;
+$globalMaxHeight 	: 1280px 	480px 		800px;
+$color 				: #ff0000 	#00ff00 	#0000ff;
+
+
+
+@for $i from 1 through length($contentClass){
+	$contentName 		: #{nth($contentClass,$i)};
+	$contentMinWidth 	: #{nth($globalMinWidth,$i)};
+	$contentMaxWidth 	: #{nth($globalMaxWidth,$i)};
+	$contentMinHeight 	: #{nth($globalMinHeight,$i)};
+	$contentMaxHeight 	: #{nth($globalMaxHeight,$i)};
+
+
+	@media only screen and (max-width: $contentMaxWidth) {
+		#wrap{
+			min-width: $contentMinWidth;
+			background-color: nth($color,$i);
+			margin: 0 auto;
+			&:before{
+			content:"#{$contentName}";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -($contentMinHeight / 2);
+	margin-left: -($contentMinWidth / 2);
+			}
+		}
+		#{$contentMaxWidth}{
+				margin: 0;
+		}
+	}
+}
+
+
+
+
+
+
+
+
 
 
 //contentSize setting
-$contentClass 			: iPhone;
 
 
 
 $grid 				: 	10;
 
 
-//contentSizes settings
-$pcWidth 				: 	1280px;
-$pcHeight 				: 	900px;
-
-$iPhoneWidth 			: 	320px;
-$iPhoneHeight 			: 	480px;
-
-$androidWidth 			: 	480px;
-$androidHeight 			: 	800px;
-
-
-//default mawrgin set
-$defaultMargin 			: 	10px;
-
-
 
 
 
 //
-body{
-	@if $contentClass == pc{
-		width: $pcWidth;
-		height: $pcHeight;
-	} @else if $contentClass == iPhone{
-		width: $iPhoneWidth;
-		height: $iPhoneHeight;
-	} @else if $contentClass == android{
-		width: $androidWidth;
-		height: $androidHeight;
-	}
-	margin: 0 auto;
-}
 
 .btn{
-	@if $contentClass == pc{
-		width: $pcWidth / $grid * 2 - 10px;
-	} @else if $contentClass == iPhone{
-		width: $iPhoneWidth - $defaultMargin * 2;
-	} @else if $contentClass == android{
-		width: $androidWidth;
-	}
 	height: 20px;
 	margin: 0 auto;
+
+	@include border-radius(10px);
 
 }
 
 
 .btn_small{
 	@extend .btn;
-	@if $contentClass == pc{
-		width: $pcWidth / $grid * 2 - 10px;
-	} @else if $contentClass == iPhone{
-		width: $iPhoneWidth - $defaultMargin * 2;
-	} @else if $contentClass == android{
-		width: $androidWidth;
-	}
 	height: 10px;
 
 }
 
 .btn_arrow_move{
-	@if $contentClass == pc{
-		width: $pcWidth / $grid * 2 - 10px;
-	} @else if $contentClass == iPhone{
-		width: $iPhoneWidth;
-	} @else if $contentClass == android{
-		width: $androidWidth;
-	}
 	position: relative;
 	&:after{
 		content: "";
@@ -103,7 +98,7 @@ body{
 		position: absolute;
 		height: 0;
 		width: 0;
-		right: 50%;
+		right: 15px;
 		top: 50%;
 
 
@@ -114,14 +109,16 @@ body{
 	@extend .btn_arrow_move;
 	&:after{
 		right: auto;
-		left: 50%;
+		left: 15px;
 
 	};
 }
 
+footer{
+	text-align: center;
+}
 
-$buttonDefaultWidth 	: 	200px;
-$buttonDefaultHiehgt 	: 	20px;
+
 
 
 
