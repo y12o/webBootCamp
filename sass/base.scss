@@ -1,0 +1,136 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@charset 'utf-8';
+@import "compass/reset";
+@import "compass/css3";
+
+
+
+$support-for-original-webkit-gradients : true !default;
+$experimental-support-for-webkit : true !default;
+$experimental-support-for-mozilla : true !default;
+$experimental-support-for-opera : true !default;
+$experimental-support-for-microsoft : false !default;
+$experimental-support-for-khtml : false !default;
+
+
+
+$contentClass 		: pc 		iphone 		android;
+$globalMinWidth 	: 900px 	320px 		480px;
+$globalMinHeight 	: 900px 	480px 		800px;
+$globalMaxWidth 	: 1280px 	480px 		800px;
+$globalMaxHeight 	: 1280px 	480px 		800px;
+$color 				: #ff0000 	#00ff00 	#0000ff;
+
+
+
+@for $i from 1 through length($contentClass){
+	$contentName 		: nth($contentClass,$i);
+	$contentMinWidth 	: nth($globalMinWidth,$i);
+	$contentMaxWidth 	: nth($globalMaxWidth,$i);
+	$contentMinHeight 	: nth($globalMinHeight,$i);
+	$contentMaxHeight 	: nth($globalMaxHeight,$i);
+
+
+	@media only screen and (max-width: $contentMaxWidth) {
+		#wrap{
+			min-width: $contentMinWidth;
+			min-height: $contentMinHeight;
+			background-color: nth($color,$i);
+			margin: 0 auto;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -($contentMinHeight / 2);
+			margin-left: -($contentMinWidth / 2);
+			&:before{
+				content:"#{$contentName}";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -($contentMinHeight / 2);
+				margin-left: -($contentMinWidth / 2);
+			}
+		}
+	}
+}
+
+
+
+//id for extend
+#transitionA{
+	@include transition-duration(.3s);
+}
+
+
+
+//
+#wrap{
+	@extend #transitionA;
+	nav li{
+
+	}
+	nav a{
+
+	}
+}
+
+footer{
+	text-align: center;
+}
+
+
+//
+
+.btn{
+	height: 20px;
+	margin: 0 auto;
+
+	@include border-radius(10px);
+
+}
+
+
+.btn_small{
+	@extend .btn;
+	height: 10px;
+
+}
+
+.btn_arrow_move{
+	position: relative;
+	&:after{
+		content: "";
+		display: block;
+		position: absolute;
+		height: 0;
+		width: 0;
+		right: 15px;
+		top: 50%;
+
+
+	}
+}
+
+.btn_arrow_back{
+	@extend .btn_arrow_move;
+	&:after{
+		right: auto;
+		left: 15px;
+
+	};
+}
+
+footer{
+	text-align: center;
+}
+
+
+
+
+
+
+
+
