@@ -72,69 +72,72 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   /* line 38, ../sass/base.scss */
   #wrap {
     min-width: 900px;
+    min-height: 900px;
     background-color: red;
     margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -450px;
+    margin-left: -450px;
   }
-  /* line 42, ../sass/base.scss */
+  /* line 48, ../sass/base.scss */
   #wrap:before {
     content: "pc";
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -900px/2;
-    margin-left: -900px/2;
-  }
-
-  /* line 51, ../sass/base.scss */
-  1280px {
-    margin: 0;
+    margin-top: -450px;
+    margin-left: -450px;
   }
 }
 @media only screen and (max-width: 480px) {
   /* line 38, ../sass/base.scss */
   #wrap {
     min-width: 320px;
+    min-height: 480px;
     background-color: lime;
     margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -240px;
+    margin-left: -160px;
   }
-  /* line 42, ../sass/base.scss */
+  /* line 48, ../sass/base.scss */
   #wrap:before {
     content: "iphone";
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -320px/2;
-    margin-left: -320px/2;
-  }
-
-  /* line 51, ../sass/base.scss */
-  480px {
-    margin: 0;
+    margin-top: -240px;
+    margin-left: -160px;
   }
 }
 @media only screen and (max-width: 800px) {
   /* line 38, ../sass/base.scss */
   #wrap {
     min-width: 480px;
+    min-height: 800px;
     background-color: blue;
     margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -400px;
+    margin-left: -240px;
   }
-  /* line 42, ../sass/base.scss */
+  /* line 48, ../sass/base.scss */
   #wrap:before {
     content: "android";
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -480px/2;
-    margin-left: -480px/2;
-  }
-
-  /* line 51, ../sass/base.scss */
-  800px {
-    margin: 0;
+    margin-top: -400px;
+    margin-left: -240px;
   }
 }
-/* line 60, ../sass/base.scss */
+/* line 63, ../sass/base.scss */
 #transitionA, #wrap {
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
@@ -142,12 +145,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   transition-duration: 0.3s;
 }
 
-/* line 77, ../sass/base.scss */
+/* line 80, ../sass/base.scss */
 footer {
   text-align: center;
 }
 
-/* line 84, ../sass/base.scss */
+/* line 87, ../sass/base.scss */
 .btn, .btn_small {
   height: 20px;
   margin: 0 auto;
@@ -158,16 +161,16 @@ footer {
   border-radius: 10px;
 }
 
-/* line 93, ../sass/base.scss */
+/* line 96, ../sass/base.scss */
 .btn_small {
   height: 10px;
 }
 
-/* line 99, ../sass/base.scss */
+/* line 102, ../sass/base.scss */
 .btn_arrow_move, .btn_arrow_back {
   position: relative;
 }
-/* line 101, ../sass/base.scss */
+/* line 104, ../sass/base.scss */
 .btn_arrow_move:after, .btn_arrow_back:after {
   content: "";
   display: block;
@@ -178,13 +181,13 @@ footer {
   top: 50%;
 }
 
-/* line 116, ../sass/base.scss */
+/* line 119, ../sass/base.scss */
 .btn_arrow_back:after {
   right: auto;
   left: 15px;
 }
 
-/* line 123, ../sass/base.scss */
+/* line 126, ../sass/base.scss */
 footer {
   text-align: center;
 }

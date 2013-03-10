@@ -19,7 +19,7 @@ $experimental-support-for-khtml : false !default;
 
 $contentClass 		: pc 		iphone 		android;
 $globalMinWidth 	: 900px 	320px 		480px;
-$globalMinHeight 	: 900px 	320px 		480px;
+$globalMinHeight 	: 900px 	480px 		800px;
 $globalMaxWidth 	: 1280px 	480px 		800px;
 $globalMaxHeight 	: 1280px 	480px 		800px;
 $color 				: #ff0000 	#00ff00 	#0000ff;
@@ -27,29 +27,32 @@ $color 				: #ff0000 	#00ff00 	#0000ff;
 
 
 @for $i from 1 through length($contentClass){
-	$contentName 		: #{nth($contentClass,$i)};
-	$contentMinWidth 	: #{nth($globalMinWidth,$i)};
-	$contentMaxWidth 	: #{nth($globalMaxWidth,$i)};
-	$contentMinHeight 	: #{nth($globalMinHeight,$i)};
-	$contentMaxHeight 	: #{nth($globalMaxHeight,$i)};
+	$contentName 		: nth($contentClass,$i);
+	$contentMinWidth 	: nth($globalMinWidth,$i);
+	$contentMaxWidth 	: nth($globalMaxWidth,$i);
+	$contentMinHeight 	: nth($globalMinHeight,$i);
+	$contentMaxHeight 	: nth($globalMaxHeight,$i);
 
 
 	@media only screen and (max-width: $contentMaxWidth) {
 		#wrap{
 			min-width: $contentMinWidth;
+			min-height: $contentMinHeight;
 			background-color: nth($color,$i);
 			margin: 0 auto;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -($contentMinHeight / 2);
+			margin-left: -($contentMinWidth / 2);
 			&:before{
-			content:"#{$contentName}";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -($contentMinHeight / 2);
-	margin-left: -($contentMinWidth / 2);
+				content:"#{$contentName}";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -($contentMinHeight / 2);
+				margin-left: -($contentMinWidth / 2);
 			}
-		}
-		#{$contentMaxWidth}{
-				margin: 0;
 		}
 	}
 }
