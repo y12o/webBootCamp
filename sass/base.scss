@@ -56,21 +56,27 @@ $color 				: #ff0000 	#00ff00 	#0000ff;
 
 
 
+//id for extend
+#transitionA{
+	@include transition-duration(.3s);
+}
 
 
 
+//
+#wrap{
+	@extend #transitionA;
+	nav li{
 
+	}
+	nav a{
 
+	}
+}
 
-
-//contentSize setting
-
-
-
-$grid 				: 	10;
-
-
-
+footer{
+	text-align: center;
+}
 
 
 //

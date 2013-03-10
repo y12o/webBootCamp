@@ -134,7 +134,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     margin: 0;
   }
 }
-/* line 78, ../sass/base.scss */
+/* line 60, ../sass/base.scss */
+#transitionA, #wrap {
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+/* line 77, ../sass/base.scss */
+footer {
+  text-align: center;
+}
+
+/* line 84, ../sass/base.scss */
 .btn, .btn_small {
   height: 20px;
   margin: 0 auto;
@@ -145,16 +158,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 10px;
 }
 
-/* line 87, ../sass/base.scss */
+/* line 93, ../sass/base.scss */
 .btn_small {
   height: 10px;
 }
 
-/* line 93, ../sass/base.scss */
+/* line 99, ../sass/base.scss */
 .btn_arrow_move, .btn_arrow_back {
   position: relative;
 }
-/* line 95, ../sass/base.scss */
+/* line 101, ../sass/base.scss */
 .btn_arrow_move:after, .btn_arrow_back:after {
   content: "";
   display: block;
@@ -165,13 +178,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   top: 50%;
 }
 
-/* line 110, ../sass/base.scss */
+/* line 116, ../sass/base.scss */
 .btn_arrow_back:after {
   right: auto;
   left: 15px;
 }
 
-/* line 117, ../sass/base.scss */
+/* line 123, ../sass/base.scss */
 footer {
   text-align: center;
 }
